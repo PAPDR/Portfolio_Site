@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/static/js/main.21daf126.js",
+    "static/media/Raytracer_Reflections.png": "/static/media/Raytracer_Reflections.064abc1be72c84ba175f.png",
+    "static/media/GameJam.png": "/static/media/GameJam.43994b0b4ee53877a7bd.png",
+    "index.html": "/index.html",
+    "main.21daf126.js.map": "/static/js/main.21daf126.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.21daf126.js"
+  ]
+}
