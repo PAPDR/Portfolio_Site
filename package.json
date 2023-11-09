@@ -5,6 +5,8 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@react-navigation/native": "^6.1.9",
+    "@react-navigation/native-stack": "^6.9.17",
     "react": "^16.14.0",
     "react-bootstrap": "^2.9.1",
     "react-dom": "16.8.6",
