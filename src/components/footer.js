@@ -11,10 +11,10 @@ function Footer(){
                     <a href="https://github.com/PAPDR">GitHub</a>
                 </li>
                 <li>
-                    <a href="https://www.linkedin.com/feed/">LinkedIN</a>
+                    <a href="https://www.linkedin.com/in/pedroaperezdr/">LinkedIN</a>
                 </li>
                 <li>
-                    <a href="https://itch.io/">Itch.io</a>
+                    <a href="https://playerdox.itch.io/">Itch.io</a>
                 </li>
             </ul>
 
