@@ -1,32 +1,42 @@
 import React, { useState } from "react";
+import Note from "../comps/note";
+import WriteNote from "../comps/write-note";
 import Container from 'react-bootstrap/Container';
-let current_points = 0
+// 1
 
-function ClickerGame(){
-  
-    const [points, setPoints] = useState(current_points);
+function NotePad() {
+  const [notes, setNotes] = useState([]);
 
-  function addPoints(addition) {
-    setPoints(points+addition);
-    updatePoints(points)
+  function addNote(newNote) {
+    setNotes((prevNotes) => {
+      return [...prevNotes, newNote];
+    });
   }
 
-  function subPoints(subtraction){
-    setPoints(points-subtraction);
-    updatePoints(points)
+  function deleteNote(id) {
+    setNotes((prevNotes) => {
+      return prevNotes.filter((noteItem, index) => {
+        return index !== id;
+      });
+    });
   }
 
-  function updatePoints(new_points){
-    current_points = new_points;
-  }
-
-    return(
-        <div className="home">
-          <h1>{points}</h1>
-          <button onClick={function() { addPoints(1); }}>CLICK!</button>
-        </div> 
-    )
+  return (
+    <div>
+      <WriteNote onAdd={addNote} />
+      {notes.map((noteItem, index) => {
+        return (
+          <Note
+            key={index}
+            id={index}
+            title={noteItem.title}
+            content={noteItem.content}
+            onDelete={deleteNote}
+          />
+        );
+      })}
+    </div>
+  );
 }
 
-
-export default ClickerGame
+export default NotePad;

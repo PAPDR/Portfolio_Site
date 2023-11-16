@@ -5,13 +5,69 @@ body {
 
 }
 
-/* .site-body{
-  font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
+button{
+  background: #f5ba13;
   color: #fff;
-  padding: 50px;
-  width: 300px;
-  margin: 0 auto;
-} */
+  background-color: #f5ba13;
+
+  cursor: pointer;
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+  right: 20px;
+  bottom: -20px;
+
+  border: none;
+  border-radius: 50%;
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+form {
+  position: relative;
+  width: 480px;
+  margin: 30px auto 20px auto;
+  background: #fff;
+  padding: 15px;
+  border-radius: 7px;
+  box-shadow: rgb(160, 120, 120);
+}
+form input {
+  border: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2em;
+}
+
+form textarea {
+  border: none;
+  outline: none;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  padding: 5px;
+  font-size: 1.2em;
+}
+
+form button {
+  background: #f5ba13;
+  color: #fff;
+
+  cursor: pointer;
+  position: absolute;
+
+  width: 40px;
+  height: 40px;
+  right: 20px;
+  bottom: -20px;
+
+  border: none;
+  border-radius: 50%;
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
 
 .site-body{
   font: normal 14px/100% "Andale Mono", AndaleMono, monospace;
@@ -53,18 +109,7 @@ h1 {
 
 }
 
-button {
-  display: inline;
-  background-color: #6bbe92;
-  border: 0;
-  border-radius: 10px;
-  box-shadow: 5px;
-  margin: 10px;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-  font-size: 50px;
-}
+
 
 .site-title{
   font-size: 2rem;
@@ -213,3 +258,27 @@ button {
 .card-light{
   background-color: #6bbe92;
 }
+
+
+
+.note {
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 0 2px 5px #ccc;
+  padding: 10px;
+  width: 240px;
+  margin: 16px;
+  float: left;
+}
+.note h1 {
+  font-size: 1.1em;
+  margin-bottom: 6px;
+}
+.note p {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+

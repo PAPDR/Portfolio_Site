@@ -16,7 +16,7 @@ export default function Navbar() {
         <a href="/about">About</a>
       </li>
       <li>
-        <a href="/clicker-game">Clicking Game</a>
+        <a href="/clicker-game">NotePad</a>
       </li>
     </ul>
   </nav>
