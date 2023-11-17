@@ -15,7 +15,7 @@ import Nav from 'react-bootstrap/Nav';import project_list from "./components/com
 import Navbar from "./components/navbar";
 import Home from "./components/Pages/home";
 import About from "./components/Pages/about";
-import ClickerGame from "./components/Pages/clicker-game";
+import Notepad from "./components/Pages/Notepad";
 import Footer from "./components/footer"
 import Projects from "./components/Pages/projects";
 
@@ -39,7 +39,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
               <Route path="/projects" element={<Projects />} />
-              <Route path="/clicker-game" element={<ClickerGame />} />
+              <Route path="/notepad" element={<Notepad />} />
               <Route path="*" element={<Navigate to="/"/>} />
             </Routes>
           </div>
