@@ -7,6 +7,9 @@ import Container from 'react-bootstrap/Container';
 function NotePad() {
   const [notes, setNotes] = useState([]);
 
+  const [dataUpdated, setDataUpdated] = useState(true); // useeffect dependency
+  const [backendData, setBackendData] = useState([{}]); // storing backend data
+
   function addNote(newNote) {
     setNotes((prevNotes) => {
       return [...prevNotes, newNote];
@@ -20,6 +23,30 @@ function NotePad() {
       });
     });
   }
+
+  // submit form function 
+  const submitForm = (e) => {
+    e.preventDefault();
+    async function postData () {
+      console.log(firstName);
+      const response = await fetch("http://localhost:5000/api/postData", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+
+        // converting userinput into json 
+        body: JSON.stringify({
+          firstName: firstName
+        })
+      })
+      if(response?.status === 200) {
+        setDataUpdated(!dataUpdated);
+        setFirstName("");
+      }
+    };
+    postData(); // sending data 
+   }
 
   return (
     <div>
