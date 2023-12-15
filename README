@@ -1,0 +1,15 @@
+How to use:
+In the server file under "const uri=" add the cluster you are planning to use. 
+
+
+Running:
+1. Make two terminals
+2. Go to the server on one of the terminals using "cd ./server/"
+3. in the server file run "npm run dev"
+4. Go to the client file on the second terminal using "cd ./client/"
+5. in the client file run "npm start"
+6. Click on "Notepad" in the header to access the notepad function
+
+Sources
+https://www.youtube.com/watch?v=fbYExfeFsI0&t=822s (For MangoDB)
+https://github.com/D-z-V/energy-feed (Used as reference)

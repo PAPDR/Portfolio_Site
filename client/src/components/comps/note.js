@@ -1,8 +1,19 @@
 import React from "react";
 
 function Note(props) {
+
+
+  //Handles deleting the note from the server
+  async function deleteNoteOnServer(id) {
+      const response = await fetch(`http://localhost:5000/api/deleteNote/${id}`, {
+          method: 'DELETE',
+      });
+      // Handle response if needed
+  }
+
   function handleClick() {
     props.onDelete(props.id);
+    deleteNoteOnServer(props.id);
   }
 
   return (

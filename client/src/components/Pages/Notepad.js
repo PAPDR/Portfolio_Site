@@ -1,63 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Note from "../comps/note";
 import WriteNote from "../comps/write-note";
-import Container from 'react-bootstrap/Container';
-// 1
 
 function NotePad() {
-  const [notes, setNotes] = useState([]);
+  const [data, setData] = useState([]); // stores fetched data
+  const [notes, setNotes] = useState([]); // stores local notes
+  const [dataUpdated, setDataUpdated] = useState(true); // useEffect dependency
 
-  const [dataUpdated, setDataUpdated] = useState(true); // useeffect dependency
-  const [backendData, setBackendData] = useState([{}]); // storing backend data
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch("http://localhost:5000/api");
+      const data = await response.json();
+      setData(data); // update state with fetched data
+    }
+    fetchData();
+  }, [dataUpdated]);
 
   function addNote(newNote) {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
+    fetch("http://localhost:5000/api/postData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newNote),
+    }).then(() => {
+      setDataUpdated(!dataUpdated); // trigger data fetch on update
+      setNotes([...notes, newNote]); // update local notes
     });
   }
 
   function deleteNote(id) {
-    setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
+    fetch(`http://localhost:5000/api/deleteNote/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      setDataUpdated(!dataUpdated); // trigger data fetch on update
+      setNotes(notes.filter((note) => note._id !== id)); // remove deleted note locally
     });
   }
-
-  // submit form function 
-  const submitForm = (e) => {
-    e.preventDefault();
-    async function postData () {
-      console.log(firstName);
-      const response = await fetch("http://localhost:5000/api/postData", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-
-        // converting userinput into json 
-        body: JSON.stringify({
-          firstName: firstName
-        })
-      })
-      if(response?.status === 200) {
-        setDataUpdated(!dataUpdated);
-        setFirstName("");
-      }
-    };
-    postData(); // sending data 
-   }
 
   return (
     <div>
       <WriteNote onAdd={addNote} />
-      {notes.map((noteItem, index) => {
+      {data.map((note) => {
         return (
           <Note
-            key={index}
-            id={index}
-            title={noteItem.title}
-            content={noteItem.content}
+            key={note._id}
+            id={note._id}
+            title={note.title}
+            content={note.content}
             onDelete={deleteNote}
           />
         );
